@@ -1,6 +1,9 @@
 const express = require('express')
 const carreraData = require('../data/carreraData.json')
 const profesorData = require('../data/profesorData.json')
+const cursoData = require('../data/cursoData.json')
+const materiaData = require('../data/materiaData.json')
+const cursosProfesoresData = require('../data/cursosProfesoresData.json')
 
 const db = require('./db/models')
 const indexRouter = require('./routes/index')
@@ -30,8 +33,11 @@ app.listen(PORT, async ()=> {
                 //Crea datos iniciales de carreras y profesores en la BD al iniciar la API
         const carreras = await db.Carrera.bulkCreate(carreraData)
         const profesores = await db.Profesor.bulkCreate(profesorData)
+        const materia = await db.Materia.bulkCreate(materiaData)
+        const cursos = await db.Curso.bulkCreate(cursoData)
+        const cursosProfesor = await db.Curso_Profesor.bulkCreate(cursosProfesoresData)
 
-    } catch (e){
+    } catch (e){ 
         console.error(e)
     }
 })

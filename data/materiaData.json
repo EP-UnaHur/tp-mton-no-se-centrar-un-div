@@ -2,18 +2,21 @@
     {
         "nombre": "Introducción a DIV",
         "cuatrimestral": "true",
-        "anio": "2024"
+        "anio": "2024",
+        "carreraId": "1"
     },
 
     {
         "nombre": "Estructura de DIV",
         "cuatrimestral": "true",
-        "anio": "2024"
+        "anio": "2024",
+        "carreraId": "1"
     },
 
     {
         "nombre": "Estructura de DIV II",
         "cuatrimestral": "false",
-        "anio": "2024"
+        "anio": "2024",
+        "carreraId": "1"
     }
 ]
