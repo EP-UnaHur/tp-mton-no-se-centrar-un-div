@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   
   Materia.init({
     nombre: {type: DataTypes.STRING, allowNull:false},
-    cuatrimestal: {type: DataTypes.BOOLEAN, allowNull: false},
+    cuatrimestral: {type: DataTypes.BOOLEAN, allowNull: false},
     anio: {type: DataTypes.STRING, allowNull: false},
     carreraId: {type: DataTypes.NUMBER, allowNull: false}
   }, {
