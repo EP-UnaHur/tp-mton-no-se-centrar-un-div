@@ -1,7 +1,8 @@
 const {Curso} = require('../db/models')
+const {Curso_Profesor} = require('../db/models')
 const { get } = require('../routes')
-const { message } = require('../schemas/carreras.schemas')
-// const sequelize = db.sequelize
+const db = require('../db/models')
+const sequelize = db.sequelize
 
 const cursoController = {}
 
@@ -37,4 +38,31 @@ const editCursoById = async (req, res)=>{
 }
 cursoController.editCursoById = editCursoById
 
+
+
+                    //TERMINAR
+const associateProfesorACursoById = async (req, res)=>{ //Ver que onda
+    const cursoId = req.params.id
+    const idsProfesores = req.body
+    idsProfesores.forEach(p => {
+        p.profesorId = p.id
+        p.cursoId = cursoId
+        delete p.id
+    })
+    await sequelize.query('PRAGMA foreign_keys = false;');
+    await Curso_Profesor.bulkCreate(idsProfesores)
+    await sequelize.query('PRAGMA foreign_keys = true;');
+
+    const response = await Curso.findByPk(cursoId, {include: {all:true}})
+    res.status(201).json(response)
+}
+cursoController.associateProfesorACursoById = associateProfesorACursoById
+
+const getAllProfesoresDelCursoById = async (req, res)=>{ //Idem
+    const cursoId = req.params.id
+    const data = await Curso.findByPk(cursoId, {include: {all:true}})
+    res.status(201).json(data)
+}
+cursoController.getAllProfesoresDelCursoById = getAllProfesoresDelCursoById
+    
 module.exports = cursoController

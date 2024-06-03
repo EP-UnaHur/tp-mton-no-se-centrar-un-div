@@ -1,5 +1,4 @@
 const Joi = require('joi')
-// const validateDate = require('../ultis/date.validator')
 
 const materiaSchema = Joi.object().keys({
     nombre: Joi.string().required().min(8).max(25).messages({
@@ -9,12 +8,11 @@ const materiaSchema = Joi.object().keys({
         "any.required": "nombre es requerido"      
     }),
     cuatrimestral: Joi.boolean().required().messages({
-        "any.required": "El campo cuatrimestal es obligatorio"
+        "any.required": "El campo cuatrimestal es obligatorio",
     }),
-    anio: Joi.number().integer().required().min(4).messages({ //ver de permitir solo 4 caracteres
-        "string.min": `anio debe tener al menos {#limit} carácteres.`,
-        // "string.max": `anio debe tener como máximo {#limit} carácteres.`,
-        "string.empty": "anio no puede ser vacio",
+    anio: Joi.number().integer().required().min(2000).max(2077).messages({
+        "number.min": `anio debe ser al menos mayor al año {#limit}.`,
+        "number.max": `anio debe ser al menos menor al año {#limit}.`,
         "any.required": "anio es requerido"      
     })
 })

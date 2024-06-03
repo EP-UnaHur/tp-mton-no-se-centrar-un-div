@@ -1,5 +1,8 @@
 const {Profesor} = require('../db/models')
+const {Curso_Profesor} = require('../db/models')
 const { get } = require('../routes')
+const db = require('../db/models')
+const sequelize = db.sequelize
 
 const profesorController = {}
 
@@ -40,5 +43,13 @@ const deleteProfesorById = async (req, res)=>{
     }
 }
 profesorController.deleteProfesorById = deleteProfesorById
+
+                        
+const getCursosDeProfesorById = async (req, res)=>{
+    const id = req.params.id
+    const data = await Profesor.findByPk(id, {include: {all:true}})
+    res.status(201).json(data)
+}
+profesorController.getCursosDeProfesorById = getCursosDeProfesorById
 
 module.exports = profesorController

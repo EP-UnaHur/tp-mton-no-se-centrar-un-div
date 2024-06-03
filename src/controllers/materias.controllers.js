@@ -1,8 +1,4 @@
-// const db = require('../db/models')
 const { get } = require('../routes')
-// const MATERIA = db.Materia
-// const CARRERA = db.Carrera
-// const sequelize = db.sequelize
 const {Materia} = require('../db/models')
 const {Curso} = require('../db/models')
 

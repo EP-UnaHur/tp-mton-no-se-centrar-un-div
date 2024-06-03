@@ -1,7 +1,5 @@
 const express = require('express')
 const {Materia} = require('../db/models')
-const {Curso} = require('../db/models')
-
 const middleware = require('../middlewares/middleware')
 const cursoSchema = require('../schemas/cursos.schemas')
 const materiaController = require('../controllers/materias.controllers')

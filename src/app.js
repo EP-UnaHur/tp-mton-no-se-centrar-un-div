@@ -17,15 +17,17 @@ app.use('/materias', materiaRouter)
 app.use('/cursos', cursoRouter)
 app.use('/profesores', profesorRouter)
 
-app.listen(3000, async ()=> {
-    console.log('la aplicación inició correctamente en el puerto 3000: http://localhost:3000')
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, async ()=> {
+    console.log(`La aplicación inició correctamente en el puerto ${PORT}: http://localhost:${PORT}`)
     try{
         await db.sequelize.authenticate()
         
                 //SOLO PARA DESARROLLO!!. Elimina todas las tablas junto a sus datos
         await db.sequelize.sync({force:true})
                 
-                //Crea datos iniciales de carreras y profesores al iniciar la API
+                //Crea datos iniciales de carreras y profesores en la BD al iniciar la API
         const carreras = await db.Carrera.bulkCreate(carreraData)
         const profesores = await db.Profesor.bulkCreate(profesorData)
 

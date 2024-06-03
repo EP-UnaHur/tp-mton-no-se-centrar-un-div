@@ -2,7 +2,7 @@ const Joi = require('joi')
 const validateDate = require('../ultis/date.validator')
 
 const cursoSchema = Joi.object().keys({
-    comision: Joi.string().messages({}),
+    comision: Joi.string().optional().messages({"string.empty": "turno no puede ser vacio"}),
     turno: Joi.string().required().messages({
         "string.empty": "turno no puede ser vacio",
         "any.required": "El campo turno es obligatorio"

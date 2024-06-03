@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         as: 'materia',
         foreignKey: 'materiaId'
       })
-      this.belongsToMany(models.Profesor, {
-        as: 'profesor',
-        through: 'curso_profesor',
+      this.belongsToMany(models.Profesor, {  //Puede que lo cambie
+        // as: 'profesor',
+        through: 'Curso_Profesor',
         foreignKey: 'profesorId',
         otherKey: 'cursoId'
       })
@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'Curso',
+    tableName: 'Cursos',
     timestamps: false,
   });
   return Curso;

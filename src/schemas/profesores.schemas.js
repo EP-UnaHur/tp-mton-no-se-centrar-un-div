@@ -11,9 +11,7 @@ const profesorSchema = Joi.object().keys({
         "string.empty": "fechaNacimiento no puede ser vacio",
         "any.required": "fechaNacimiento es requerido"      
     }),
-    legajo: Joi.number().integer().messages({
-        "string.empty": "legajo no puede ser vacio" 
-    }),
+    legajo: Joi.number().integer().optional(),
     activo: Joi.boolean().required().messages({
         "any.required": "El campo cuatrimestal es obligatorio"
     })
