@@ -1,8 +1,21 @@
 [
     {
-        "nombre": "",
-        "fechaNacimiento": "",
-        "legajo": "",
-        "activo": ""
+        "nombre": "John Doe",
+        "fechaNacimiento": "2000-01-15",
+        "activo": "true"
+    },
+    
+    {
+        "nombre": "El Emperador de los DIVs",
+        "fechaNacimiento": "1950-09-01",
+        "legajo": "6901",
+        "activo": "true"  
+    },
+
+    {
+        "nombre": "Estoy cansado jefe",
+        "fechaNacimiento": "1980-12-30",
+        "legajo": "0101",
+        "activo": "false"  
     }
 ]

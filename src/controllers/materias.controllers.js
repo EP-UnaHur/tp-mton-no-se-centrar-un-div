@@ -31,14 +31,14 @@ const deleteMateriaById = async (req, res)=>{ //no se si esta bn como hice el er
 }
 materiaController.deleteMateriaById  = deleteMateriaById
 
-const createCursoEnMateriaById = async (req, res)=>{ //No funciona, solucionar
-    const id = req.params.id
-    const cursoACrear = await Curso.create({...req.body, materiaId: id})
+const createCursoEnMateriaById = async (req, res)=>{
+    const materiaId = req.params.id
+    const cursoACrear = await Curso.create({materiaId,...req.body})
     res.status(201).json(cursoACrear)
 }
 materiaController.createCursoEnMateriaById = createCursoEnMateriaById
 
-const getCursosDeLaMateriaById = async (req, res)=>{ //idem
+const getCursosDeLaMateriaById = async (req, res)=>{
     const id = req.params.id
     const materias  = await Materia.findByPk(id, {
         include: {model: Curso, as: 'curso'}

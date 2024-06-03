@@ -36,6 +36,7 @@ const getMateriasDeLaCarreraById = async (req, res)=>{
     const carreras  = await CARRERA.findByPk(id, {
         include: {model: MATERIA, as: 'materia'}
     })
+    console.log(carreras)
     res.status(200).json(carreras.materia) 
 }
 carreraController.getMateriasDeLaCarreraById = getMateriasDeLaCarreraById

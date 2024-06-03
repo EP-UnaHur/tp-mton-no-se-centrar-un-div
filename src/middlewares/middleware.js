@@ -6,7 +6,7 @@ const existsById = (Model) => {
         const modelName = Model.modelName || (Model.options.name && Model.options.name.singular);
         if (!instancia) {
             return res.status(404).json({
-                mensaje: `El o la ${modelName} con id ${id} NO existe`
+                mensaje: `El|La ${modelName} con el id: ${id}. NO existe`
             }
             )
         }
