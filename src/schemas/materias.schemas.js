@@ -14,8 +14,7 @@ const materiaSchema = Joi.object().keys({
         "number.min": `anio debe ser al menos mayor al año {#limit}.`,
         "number.max": `anio debe ser al menos menor al año {#limit}.`,
         "any.required": "anio es requerido"      
-    }),
-    materia: Joi.string().messages({})
+    })
 })
 
 module.exports = materiaSchema
